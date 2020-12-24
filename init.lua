@@ -1,4 +1,4 @@
-minetest.register_tool("thomod:steel_hammer", {
+minetest.register_tool("hammermod:steel_hammer", {
 	 description = "Steel Hammer",
         short_description = "Steel Hammer",
         groups={hard=1, metal=1},
@@ -10,7 +10,6 @@ minetest.register_tool("thomod:steel_hammer", {
             full_punch_interval = 1.0,
             max_drop_level = 999,
             groupcaps = {
-                -- For example:
                 choppy = {times = {[1] = 2.50, [2] = 1.40, [3] = 1.00},uses = 20, maxlevel = 2},
                 cracky={times={[1]=4.00, [2]=1.50, [3]=1.00}, uses=70, maxlevel=1},
                 crumbly = {times={[2]=3.00, [3]=0.70}, uses=0, maxlevel=1},
@@ -21,12 +20,6 @@ minetest.register_tool("thomod:steel_hammer", {
 
         },
   
-})
-
-
-minetest.register_node("thomod:decowood", {
-	tiles = {"decowood.png"},
-	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 })
 
 thomas_dig_none = "tupeuxyaller"
@@ -40,7 +33,7 @@ minetest.register_on_dignode(
 function(pos, oldnode, digger)		
 
  --TODO  	thomas_dig_none per player 
-	if digger == nil or digger:get_wielded_item():get_name()  ~= "thomod:steel_hammer" then
+	if digger == nil or digger:get_wielded_item():get_name()  ~= "hammermod:steel_hammer" then
 		return
 	end
 
