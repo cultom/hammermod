@@ -26,21 +26,19 @@ minetest.register_tool("hammermod:steel_hammer", {
 
 })
 
-local thomas_dig_none = "tupeuxyaller"
+local steelHammerDigs = {}
 
 minetest.register_on_dignode(
   function(pos, oldnode, digger)
-
-    --TODO  	thomas_dig_none per player
     if digger == nil or digger:get_wielded_item():get_name()  ~= "hammermod:steel_hammer" then
       return
     end
-
-    if thomas_dig_none ~= "tupeuxyaller" then
+    
+    local playerName = digger:get_player_name()
+    if(playerName == ""  or steelHammerDigs[playerName]) then
       return
     end
-
-    thomas_dig_none = "kesketufousla"
+    steelHammerDigs[playerName] = true
 
     local posDiff = pos.y - digger:get_pos().y
     if(posDiff < 2 and posDiff > 1) then
@@ -125,6 +123,6 @@ minetest.register_on_dignode(
       minetest.node_dig(pos, minetest.get_node(pos), digger)
 
     end
-    thomas_dig_none = "tupeuxyaller"
+    steelHammerDigs[playerName] = nil
   end
 )
