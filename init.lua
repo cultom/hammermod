@@ -26,6 +26,18 @@ minetest.register_tool("hammermod:steel_hammer", {
 
 })
 
+
+minetest.register_craft( {
+        output = 'hammermod:steel_hammer',
+        recipe = {
+            {'mcl_core:iron_ingot', 'mcl_core:ironblock', 'mcl_core:iron_ingot'},
+            {'', 'mcl_core:stick', ''},
+            {'', 'mcl_core:stick', ''}  
+        },
+    }
+)
+
+
 local steelHammerDigs = {}
 
 minetest.register_on_dignode(
