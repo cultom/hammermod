@@ -28,12 +28,6 @@ minetest.register_tool("hammermod:steel_hammer", {
 
 thomas_dig_none = "tupeuxyaller"
 
-function thom_dig(pos, digger)
-  --minetest.dig_node(pos)
-  minetest.node_dig(pos, minetest.get_node(pos), digger)
-  --minetest.spawn_falling_node(pos)
-end
-
 minetest.register_on_dignode(
   function(pos, oldnode, digger)
 
@@ -56,79 +50,79 @@ minetest.register_on_dignode(
       then
         pos.y = pos.y -1
         pos.z = pos.z -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.z = pos.z +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.z = pos.z +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.z = pos.z -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
       else
         pos.y = pos.y -1
         pos.x = pos.x -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.x = pos.x +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.x = pos.x +1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.y = pos.y -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
 
         pos.x = pos.x -1
-        thom_dig(pos, digger)
+        minetest.node_dig(pos, minetest.get_node(pos), digger)
       end
     else
       pos.x = pos.x -1
       pos.z = pos.z -1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.x = pos.x +1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.x = pos.x +1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.z = pos.z +1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.z = pos.z +1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.x = pos.x -1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.x = pos.x -1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
       pos.z = pos.z -1
-      thom_dig(pos, digger)
+      minetest.node_dig(pos, minetest.get_node(pos), digger)
 
     end
     thomas_dig_none = "tupeuxyaller"
