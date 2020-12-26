@@ -26,7 +26,7 @@ minetest.register_tool("hammermod:steel_hammer", {
 
 })
 
-thomas_dig_none = "tupeuxyaller"
+local thomas_dig_none = "tupeuxyaller"
 
 minetest.register_on_dignode(
   function(pos, oldnode, digger)
