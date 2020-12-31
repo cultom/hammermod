@@ -26,28 +26,31 @@ minetest.register_tool("hammermod:steel_hammer", {
 
 })
 
-local ingredients = {
-    stick     = "default:stick",
-    ironBlock = "default:steelblock",
-    ironIngot = "default:steel_ingot",
-}
-
+local ingredients
 if minetest.get_modpath("mcl_core") then
     ingredients = {
         stick     = "mcl_core:stick",
         ironBlock = "mcl_core:ironblock",
         ironIngot = "mcl_core:iron_ingot",
     }
+elseif minetest.get_modpath("default") then
+    ingredients = {
+        stick     = "default:stick",
+        ironBlock = "default:steelblock",
+        ironIngot = "default:steel_ingot",
+    }
 end
 
-minetest.register_craft({
-    output = "hammermod:steel_hammer",
-    recipe = {
-        {ingredients.ironIngot, ingredients.ironBlock, ingredients.ironIngot},
-        {"", ingredients.stick, ""},
-        {"", ingredients.stick, ""},
-    },
-})
+if ingredients then
+    minetest.register_craft({
+        output = "hammermod:steel_hammer",
+        recipe = {
+            {ingredients.ironIngot, ingredients.ironBlock, ingredients.ironIngot},
+            {"", ingredients.stick, ""},
+            {"", ingredients.stick, ""},
+        },
+    })
+end
 
 
 local steelHammerDigs = {}
