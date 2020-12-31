@@ -10,15 +10,15 @@ minetest.register_tool("hammermod:steel_hammer", {
     full_punch_interval = 0.83333333,
     max_drop_level = 4,
     groupcaps = {
-      choppy = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      cracky={times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      crumbly = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      snappy = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      oddly_breakable_by_hand = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      pickaxey = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      axey={times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      shovely={times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel = 2},
-      pickaxey_dig_iron = {times={[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 250, maxlevel=2}
+      choppy = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      cracky={times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      crumbly = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      snappy = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      oddly_breakable_by_hand = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      pickaxey = {times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      axey={times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      shovely={times = {[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel = 2},
+      pickaxey_dig_iron = {times={[1] = 1.00, [2] = 1.40, [3] = 1.00},uses = 111, maxlevel=2}
     },
     damage_groups = {fleshy=1},
 
