@@ -26,32 +26,28 @@ minetest.register_tool("hammermod:steel_hammer", {
 
 })
 
-minetest.register_on_mods_loaded(function()
-	local ingredients = {
-		stick = "default:stick",
-		ironBlock = "default:steelblock",
-		ironIngot = "default:steel_ingot"	
-	}
+local ingredients = {
+    stick     = "default:stick",
+    ironBlock = "default:steelblock",
+    ironIngot = "default:steel_ingot",
+}
 
-	if(minetest.registered_nodes["mcl_core:ironblock"]) then
-		ingredients = {
-			stick = "mcl_core:stick",
-			ironBlock = "mcl_core:ironblock",
-			ironIngot = "mcl_core:iron_ingot"
-		}
-	  
-	end
-	minetest.register_craft( {
-		output = 'hammermod:steel_hammer',
-		recipe = {
-		    {ingredients.ironIngot, ingredients.ironBlock, ingredients.ironIngot},
-		    {'', ingredients.stick, ''},
-		    {'', ingredients.stick, ''}  
-		},
-	    }
-	)
-end)
+if minetest.get_modpath("mcl_core") then
+    ingredients = {
+        stick     = "mcl_core:stick",
+        ironBlock = "mcl_core:ironblock",
+        ironIngot = "mcl_core:iron_ingot",
+    }
+end
 
+minetest.register_craft({
+    output = "hammermod:steel_hammer",
+    recipe = {
+        {ingredients.ironIngot, ingredients.ironBlock, ingredients.ironIngot},
+        {"", ingredients.stick, ""},
+        {"", ingredients.stick, ""},
+    },
+})
 
 
 local steelHammerDigs = {}
