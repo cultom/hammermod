@@ -1,0 +1,20 @@
+name: Release
+# Push a version tag (e.g. 0.1.5 or v0.1.5): the tests run, a GitHub release with a zip is made, and
+# after the "contentdb" environment is approved, ContentDB imports the tag.
+# One-time setup by a repository admin with the package author's ContentDB token:
+#   avanti secrets setup && avanti secrets push cultom/hammermod
+# Until then the ContentDB step is skipped.
+on:
+  push:
+    tags: ["v*", "[0-9]*"]
+
+permissions:
+  contents: write
+
+jobs:
+  ci:
+    uses: culmat/avanti-luanti/.github/workflows/mod-ci.yml@v2
+  release:
+    needs: ci
+    uses: culmat/avanti-luanti/.github/workflows/mod-release.yml@v2
+    secrets: inherit

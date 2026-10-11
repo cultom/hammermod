@@ -1,3 +1,4 @@
 /.gitignore   export-ignore
 /README.MD    export-ignore
 /.luacheckrc  export-ignore
+/.github      export-ignore
