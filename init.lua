@@ -36,13 +36,18 @@ local function is_hammer(itemstack)
   return minetest.get_item_group(itemstack:get_name(), "hammermod_hammer") > 0
 end
 
--- xcompat (optional) knows the materials of many games; without it, fall back to the two we know.
+-- xcompat (optional) knows the materials of many games. Use it when it maps all three
+-- (not every game has a steel block); otherwise fall back to the two games we know.
+local xc = minetest.get_modpath("xcompat") and xcompat.materials or {}
+local function known(item)
+    return item ~= nil and item ~= ""
+end
 local ingredients
-if minetest.get_modpath("xcompat") then
+if known(xc.stick) and known(xc.steel_block) and known(xc.steel_ingot) then
     ingredients = {
-        stick     = xcompat.materials.stick,
-        ironBlock = xcompat.materials.steel_block,
-        ironIngot = xcompat.materials.steel_ingot,
+        stick     = xc.stick,
+        ironBlock = xc.steel_block,
+        ironIngot = xc.steel_ingot,
     }
 elseif minetest.get_modpath("mcl_core") then
     ingredients = {

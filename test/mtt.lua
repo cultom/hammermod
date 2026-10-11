@@ -112,6 +112,10 @@ mtt.register_with_area("hammermod: enchanted hammer still digs 3x3", area, funct
 end)
 
 mtt.register_with_area("hammermod: digs 3x3 and drops the blocks", area, function(pos1, _, callback)
+	if not core.registered_nodes[stone] then
+		core.log("action", "[hammermod test] no " .. stone .. " in this game, dig test skipped")
+		return callback()
+	end
 	local dug, drops = dig_layer(pos1, "hammermod:steel_hammer")
 	core.log("action", ("[hammermod test] plain hammer: dug %d, dropped %d"):format(dug, drops))
 	assert(dug == 9, "expected a 3x3 hole, dug " .. dug .. " node(s)")
@@ -139,9 +143,12 @@ end)
 mtt.register("hammermod: the recipe uses items the game has", function(callback)
 	local recipe = core.get_craft_recipe("hammermod:steel_hammer")
 	if not recipe.items then
-		-- No xcompat, default or mcl_core: no materials known, so no recipe.
-		assert(not (core.get_modpath("xcompat") or core.get_modpath("default") or core.get_modpath("mcl_core")),
-			"expected a recipe for the hammer")
+		-- Without materials from xcompat, default or mcl_core there's no recipe (e.g. Development
+		-- Test: xcompat maps no steel block there).
+		local xc = core.get_modpath("xcompat") and xcompat.materials or {}
+		assert(not ((xc.stick and xc.steel_block and xc.steel_ingot)
+			or core.get_modpath("default") or core.get_modpath("mcl_core")), "expected a recipe for the hammer")
+		core.log("action", "[hammermod test] no recipe in this game")
 		return callback()
 	end
 	for _, item in pairs(recipe.items) do
