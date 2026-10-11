@@ -135,3 +135,19 @@ mtt.register("hammermod: harvests like an iron tool in MineClone-like games", fu
 	assert(math.abs(hammer - pick) < 0.01, "should dig stone as fast as an iron pickaxe")
 	callback()
 end)
+
+mtt.register("hammermod: the recipe uses items the game has", function(callback)
+	local recipe = core.get_craft_recipe("hammermod:steel_hammer")
+	if not recipe.items then
+		-- No xcompat, default or mcl_core: no materials known, so no recipe.
+		assert(not (core.get_modpath("xcompat") or core.get_modpath("default") or core.get_modpath("mcl_core")),
+			"expected a recipe for the hammer")
+		return callback()
+	end
+	for _, item in pairs(recipe.items) do
+		assert(core.registered_items[item], "recipe ingredient isn't registered: " .. item)
+	end
+	core.log("action", "[hammermod test] recipe: " .. table.concat(recipe.items, " ", 1, 3)
+		.. (core.get_modpath("xcompat") and " (via xcompat)" or ""))
+	callback()
+end)

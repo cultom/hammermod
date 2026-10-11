@@ -36,8 +36,15 @@ local function is_hammer(itemstack)
   return minetest.get_item_group(itemstack:get_name(), "hammermod_hammer") > 0
 end
 
+-- xcompat (optional) knows the materials of many games; without it, fall back to the two we know.
 local ingredients
-if minetest.get_modpath("mcl_core") then
+if minetest.get_modpath("xcompat") then
+    ingredients = {
+        stick     = xcompat.materials.stick,
+        ironBlock = xcompat.materials.steel_block,
+        ironIngot = xcompat.materials.steel_ingot,
+    }
+elseif minetest.get_modpath("mcl_core") then
     ingredients = {
         stick     = "mcl_core:stick",
         ironBlock = "mcl_core:ironblock",
