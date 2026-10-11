@@ -1,9 +1,9 @@
 name: Release
-# Push a version tag (e.g. 0.1.5 or v0.1.5): the tests run, a GitHub release with a zip is made, and
-# after the "contentdb" environment is approved, ContentDB imports the tag.
-# One-time setup by a repository admin with the package author's ContentDB token:
+# Push a version tag (e.g. 0.2.0): the tests run and a GitHub release with a zip is made.
+# ContentDB picks the tag up through its automatic releases ("New Tag", checked nightly).
+# For an immediate ContentDB release, an admin stores the package author's token once:
 #   avanti secrets setup && avanti secrets push cultom/hammermod
-# Until then the ContentDB step is skipped.
+# (ContentDB rejects co-maintainer tokens, contentdb#612); without it that step is skipped.
 on:
   push:
     tags: ["v*", "[0-9]*"]
