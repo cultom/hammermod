@@ -6,5 +6,7 @@ on:
 
 jobs:
   avanti:
-    # luacheck, ldg lint and headless tests in Minetest Game, Mineclonia and VoxeLibre
+    # luacheck, ldg lint and headless tests in Minetest Game, Mineclonia, VoxeLibre and Asuna
     uses: culmat/avanti-luanti/.github/workflows/mod-ci.yml@v2
+    with:
+      games: minetest,mineclonia,mineclone2,asuna

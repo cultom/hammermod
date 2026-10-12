@@ -9,7 +9,7 @@ git tag -a 0.2.0 -m "Works in Mineclonia and VoxeLibre; uses xcompat materials w
 git push origin 0.2.0
 ```
 
-- **GitHub (immediately):** CI runs the tests in Minetest Game, Mineclonia and VoxeLibre and creates a
+- **GitHub (immediately):** CI runs the tests in Minetest Game, Mineclonia, VoxeLibre and Asuna and creates a
   GitHub release with a zip.
 - **ContentDB (nightly):** the package's *automatic releases* are set to "New Tag" / "Create release"
   ([update settings](https://content.luanti.org/packages/cultom/hammermod/update-config/), editable by every

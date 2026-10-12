@@ -14,6 +14,8 @@ permissions:
 jobs:
   ci:
     uses: culmat/avanti-luanti/.github/workflows/mod-ci.yml@v2
+    with:
+      games: minetest,mineclonia,mineclone2,asuna
   release:
     needs: ci
     uses: culmat/avanti-luanti/.github/workflows/mod-release.yml@v2
